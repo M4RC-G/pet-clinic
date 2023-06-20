@@ -1,10 +1,10 @@
 name: Docker Build and Release
 on: [ push ]
-env:
+#env:
 #### An dieser Stelle müssen eure persönlichen Umgebungsvariablen eingetragen werden
   # Tip: Die Token/der API-Key werden als Secrets in den Repository-Settings eingetragen und hier referenziert.
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+  #SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 jobs:
   compile:
     name: Compile
@@ -19,8 +19,5 @@ jobs:
         cache: maven
     #### AUFGABE 2: SONAR
       # hier ist der Platz für die Konfiguration der Sonar Analyse
-  
     - name: Compile, build and push
-      run: |
-        #### AUFGABE 3 COMPILE, DOCKER BUILD UND PUSH
-          # hier ist Platz für maven package und docker build
+      run: mvn package
